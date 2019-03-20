@@ -24,6 +24,8 @@ const reducer = (state = initialState, action) => {
       ...state,
       history: state.history.filter(el => el.value !== action.ind)
     };
+  } else if (action.type === "LOAD") {
+    newState.loading = true;
   }
   return newState;
 };

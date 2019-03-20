@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
+import AnotherComponent from "./AnotherComponent";
+import * as actionCreator from "./store/actions/action";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <AnotherComponent props={this.props} />
         <h2>Count : {this.props.count}</h2>
         <button onClick={this.props.incCount}>INC</button>
         &nbsp;
@@ -32,17 +35,16 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     count: state.count,
-    history: state.history
+    history: state.history,
+    loading: state.loading
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    incCount: () => dispatch({ type: "INC", value: 1 }),
-    decCount: () => dispatch({ type: "DEC", value: 1 }),
-    removeLI: e => {
-      dispatch({ type: "DEL", ind: e.target.value });
-    }
+    incCount: () => dispatch(actionCreator.incCount(1)),
+    decCount: () => dispatch(actionCreator.decCount(1)),
+    removeLI: e => dispatch(actionCreator.removeLI(e))
   };
 };
 
