@@ -6,7 +6,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   const newState = { ...state };
   if (action.type === "INC") {
-    // newState.count += 1;
     return {
       ...state,
       count: state.count + action.value,
@@ -26,6 +25,8 @@ const reducer = (state = initialState, action) => {
     };
   } else if (action.type === "LOAD") {
     newState.loading = true;
+  } else if (action.type === "LOG") {
+    console.log("Action Received.");
   }
   return newState;
 };

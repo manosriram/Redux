@@ -1,4 +1,6 @@
 import React from "react";
+import * as actionCreator from "./store/actions/action";
+import { connect } from "react-redux";
 
 class AnotherComponent extends React.Component {
   render() {
@@ -6,9 +8,19 @@ class AnotherComponent extends React.Component {
     return (
       <div>
         <h1>History Length = {this.props.props.history.length}</h1>
+        <button onClick={this.props.showLog}>Click</button>
       </div>
     );
   }
 }
 
-export default AnotherComponent;
+const mapDispatchToProps = dispatch => {
+  return {
+    showLog: () => dispatch(actionCreator.showLog())
+  };
+};
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(AnotherComponent);

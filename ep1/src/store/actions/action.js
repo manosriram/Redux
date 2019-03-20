@@ -13,3 +13,7 @@ export const decCount = val => {
 export const removeLI = e => {
   return { type: "DEL", ind: e.target.value };
 };
+
+export const showLog = () => {
+  return { type: "LOG" };
+};
