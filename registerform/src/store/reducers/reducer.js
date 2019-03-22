@@ -21,13 +21,9 @@ const reducer = (state = initialState, action) => {
   } else if (action.type === "SUB") {
     let e = action.e;
     e.preventDefault();
-    const res1 = await fetch("https://jsonplaceholder.typicode.com/todos/2");
-    const res2 = await res1.json();
     return {
       ...state,
-      payload: {
-        title: res2.title
-      }
+      payload: action.payload
     };
   }
   return newState;

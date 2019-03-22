@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import * as actionCreator from "./store/actions/action";
 import { connect } from "react-redux";
@@ -90,7 +89,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     handleChange: e => dispatch(actionCreator.handleChange(e)),
-    handleSubmit: e => dispatch(actionCreator.handleSubmit(e))
+    handleSubmit: e => {
+      e.preventDefault();
+      dispatch(actionCreator.handleSubmit(e));
+    }
   };
 };
 

@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import thunk from "react-thunk";
+import thunk from "redux-thunk";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -10,7 +10,7 @@ import reducer from "./store/reducers/reducer";
 
 // Redux Config.
 
-const store = createStore(reducer, applyMiddleware());
+const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
