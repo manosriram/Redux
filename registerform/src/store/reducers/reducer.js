@@ -6,7 +6,8 @@ var initialState = {
   country: "",
   email: "",
   password: "",
-  payload: {}
+  payload: {},
+  newState: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -24,6 +25,11 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       payload: action.payload
+    };
+  } else if (action.type === "CHNGSTATE") {
+    return {
+      ...state,
+      newState: action.prop
     };
   }
   return newState;

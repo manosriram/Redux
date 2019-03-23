@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import * as actionCreator from "./store/actions/action";
 import { connect } from "react-redux";
+import ShowState from "./components/ShowState";
 
 class App extends Component {
   showState = () => {
@@ -68,6 +69,9 @@ class App extends Component {
         <br />
         <br />
         <button onClick={this.showState}>Show State</button>
+        <br />
+        <br />
+        <ShowState props={this.props} />
       </div>
     );
   }

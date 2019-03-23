@@ -21,3 +21,10 @@ export const handleSubmit = e => {
     }
   };
 };
+
+export const changeState = prop => {
+  return {
+    type: "CHNGSTATE",
+    prop: prop
+  };
+};
